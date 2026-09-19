@@ -18,7 +18,7 @@ body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica
 .title{font-size:34px;margin:0;color:#b92b59;text-shadow:0 6px 18px rgba(185,43,89,0.08)}
 .decor{margin:14px 0}
 
-.profile-photo{width:360px;height:360px;border-radius:18px;object-fit:cover;border:8px solid rgba(255,255,255,0.7);box-shadow:0 30px 60px rgba(20,20,40,0.18);transform:translateZ(50px);margin-top:12px}
+.profile-photo{width:360px;height:auto;max-height:520px;border-radius:18px;object-fit:contain;object-position:center center;border:8px solid rgba(255,255,255,0.9);box-shadow:0 30px 60px rgba(20,20,40,0.18);transform:none;margin-top:12px;image-rendering:auto;background-color:rgba(255,255,255,0.4)}
 
 .controls{display:flex;gap:14px;justify-content:center;margin-top:6px}
 .btn{padding:12px 20px;border-radius:12px;border:none;cursor:pointer;font-weight:700;background:linear-gradient(180deg,#ffffff,#fff9fb);box-shadow:0 8px 18px rgba(17,12,19,0.06);transition:transform .18s ease,box-shadow .18s ease}
@@ -58,25 +58,25 @@ body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica
 
 /* Mobile / Portrait orientation adjustments */
 @media (max-width:900px){
-	.stage{padding:20px}
-	.hero{gap:14px}
-	.card-3d{max-width:540px}
-	.hero-row{flex-direction:column;align-items:center;gap:12px}
-	.hero-text{max-width:92%;text-align:center}
-	.profile-photo{width:72vw;height:auto;max-width:360px}
-	.title{font-size:26px}
-	.controls{width:100%;display:flex;justify-content:center}
-	.btn{width:86%;max-width:420px;display:block;margin:0 auto}
-	.wishArea{font-size:16px}
+    	.stage{padding:20px}
+    	.hero{gap:14px}
+    	.card-3d{max-width:540px}
+    	.hero-row{flex-direction:column;align-items:center;gap:12px}
+    	.hero-text{max-width:92%;text-align:center}
+    	.profile-photo{width:86vw;height:auto;max-width:520px;object-fit:contain;object-position:center center;border-width:6px}
+    	.title{font-size:26px}
+    	.controls{width:100%;display:flex;justify-content:center}
+    	.btn{width:86%;max-width:420px;display:block;margin:0 auto}
+    	.wishArea{font-size:16px}
 }
 
 @media (max-width:640px){
-	.profile-photo{width:78vw;max-width:320px}
-	.title{font-size:20px}
-	.btn{width:92%}
-	.card-msg{flex-direction:column;align-items:flex-start}
-	.card-msg img{width:100%;height:auto;border-radius:10px}
-	.messages{gap:12px;padding:0 8px}
+    	.profile-photo{width:88vw;max-width:480px;object-fit:contain;object-position:center center;border-width:5px}
+    	.title{font-size:20px}
+    	.btn{width:92%}
+    	.card-msg{flex-direction:column;align-items:flex-start}
+    	.card-msg img{width:100%;height:auto;border-radius:10px}
+    	.messages{gap:12px;padding:0 8px}
 }
 
 /* Mobile-specific tweaks: bigger photo, smaller badge */
@@ -95,8 +95,8 @@ body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica
 }
 
 @media (orientation:portrait) and (max-width:1024px){
-	/* Slightly larger photo in portrait tablets */
-	.profile-photo{width:46vw;max-width:420px}
+    	/* Slightly larger photo in portrait tablets */
+    	.profile-photo{width:60vw;max-width:520px;object-fit:contain;object-position:center center}
 }
 
 /* Orientation-specific tweaks */
