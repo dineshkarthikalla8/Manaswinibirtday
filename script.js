@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function(){
             Always be happy ❤️<br>
             Feeling very very happy for being a sweet sister in my life.<br>
             Thank you so much for this bond.<br>
-            It really means a lot to me.....
+            It really means a lot to me......
           </p>
           <p style="margin:8px 0 0;color:#333;font-weight:600">With love,</p>
           <p style="margin:6px 0 0;color:#8a2f56;font-weight:700">Karthik</p>
