@@ -4,11 +4,11 @@
 html,body{height:100%}
 body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0;background:linear-gradient(180deg,#fff3f8 0%, #fffaf0 45%, #f7f7ff 100%);color:#1f1f1f;display:flex;align-items:center;justify-content:center;min-height:100vh}
 
-.stage{position:relative;width:100%;height:100%;overflow:hidden;padding:48px}
+.stage{position:relative;width:100%;height:100%;overflow:hidden;padding:48px;display:flex;align-items:center;justify-content:center}
 .container{max-width:920px;margin:0 auto;position:relative;z-index:2}
 
 .hero{perspective:1200px;display:flex;flex-direction:column;align-items:center;gap:20px}
-.card-3d{width:100%;max-width:760px;transform-style:preserve-3d;transition:transform 600ms cubic-bezier(.2,.8,.2,1);}
+.card-3d{width:100%;max-width:760px;transform-style:preserve-3d;transition:transform 600ms cubic-bezier(.2,.8,.2,1);margin:0 auto}
 /* Removed hover transform to prevent UI shifting when mouse moves over the card */
 /* .card-3d:hover{transform:rotateX(6deg) rotateY(-6deg) translateY(-6px)} */
 .card-face{background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.85));box-shadow:0 20px 40px rgba(30,20,40,0.12);border-radius:16px;padding:28px;backface-visibility:hidden}
@@ -79,9 +79,53 @@ body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica
 	.messages{gap:12px;padding:0 8px}
 }
 
+/* Mobile-specific tweaks: bigger photo, smaller badge */
+@media (max-width:640px){
+	.profile-wrapper .role-badge{font-size:11px;padding:6px 10px;top:8px;border-radius:10px}
+	.profile-photo{width:92vw;max-width:420px}
+	.hero-text{max-width:82vw;text-align:center;font-size:16px}
+	.wishArea .message-text{max-width:46ch}
+}
+
+@media (max-width:460px){
+	.profile-wrapper .role-badge{font-size:10px;padding:4px 8px;top:6px}
+	.profile-photo{width:96vw}
+	.hero-text{max-width:88vw;font-size:15px}
+	.wishArea .message-text{max-width:44ch}
+}
+
 @media (orientation:portrait) and (max-width:1024px){
 	/* Slightly larger photo in portrait tablets */
 	.profile-photo{width:46vw;max-width:420px}
+}
+
+/* Orientation-specific tweaks */
+@media (orientation:portrait) {
+	.card-face{padding:18px}
+	.profile-photo{width:94vw;max-width:520px;height:auto;border-radius:14px}
+	.profile-wrapper .role-badge{left:50%;transform:translateX(-50%);top:10px;font-size:12px;padding:6px 12px}
+	.hero-text{max-width:86vw;text-align:center;font-size:16px}
+	.wishArea .message-text{max-width:46ch}
+	.controls{margin-top:10px}
+}
+
+@media (orientation:landscape) and (max-height:720px){
+	.profile-photo{width:36vw;max-width:360px}
+	.hero-row{flex-direction:row;align-items:center}
+	.hero-text{max-width:44%;text-align:left}
+	.wishArea .message-text{max-width:60ch}
+}
+
+/* Ensure proper centering and alignment on narrow screens */
+@media (max-width:720px){
+	.hero-row{flex-direction:column;align-items:center;gap:12px}
+	.profile-wrapper{display:block;text-align:center}
+	.profile-photo{margin:6px auto}
+	.hero-text{max-width:86vw;text-align:center;margin-top:8px}
+	.controls{width:92%;display:flex;justify-content:center}
+	.wishArea .message-container{flex-direction:column;align-items:center}
+	.wishArea .message-text{max-width:72vw}
+	.card-face{padding:20px}
 }
 
 /* Message container with right-side photo */
