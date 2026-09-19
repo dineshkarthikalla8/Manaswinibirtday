@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0;background:linear-gradient(180deg,#fff3f8 0%, #fffaf0 45%, #f7f7ff 100%);color:#1f1f1f;display:flex;align-items:center;justify-content:center;min-height:100vh}
+
+.stage{position:relative;width:100%;height:100%;overflow:hidden;padding:48px}
+.container{max-width:920px;margin:0 auto;position:relative;z-index:2}
+
+.hero{perspective:1200px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.card-3d{width:100%;max-width:760px;transform-style:preserve-3d;transition:transform 600ms cubic-bezier(.2,.8,.2,1);}
+/* Removed hover transform to prevent UI shifting when mouse moves over the card */
+/* .card-3d:hover{transform:rotateX(6deg) rotateY(-6deg) translateY(-6px)} */
+.card-face{background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.85));box-shadow:0 20px 40px rgba(30,20,40,0.12);border-radius:16px;padding:28px;backface-visibility:hidden}
+.card-front{transform:translateZ(40px)}
+.card-back{position:absolute;top:0;left:0;right:0;bottom:0;transform:rotateY(180deg) translateZ(20px);display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(180deg,#ff7eb3,#ff9fb2)}
+
+.title{font-size:34px;margin:0;color:#b92b59;text-shadow:0 6px 18px rgba(185,43,89,0.08)}
+.decor{margin:14px 0}
+
+.profile-photo{width:360px;height:360px;border-radius:18px;object-fit:cover;border:8px solid rgba(255,255,255,0.7);box-shadow:0 30px 60px rgba(20,20,40,0.18);transform:translateZ(50px);margin-top:12px}
+
+.controls{display:flex;gap:14px;justify-content:center;margin-top:6px}
+.btn{padding:12px 20px;border-radius:12px;border:none;cursor:pointer;font-weight:700;background:linear-gradient(180deg,#ffffff,#fff9fb);box-shadow:0 8px 18px rgba(17,12,19,0.06);transition:transform .18s ease,box-shadow .18s ease}
+.btn.primary{background:linear-gradient(180deg,#ff8fb3,#ff5a8a);color:#fff;box-shadow:0 10px 28px rgba(255,90,138,0.18)}
+.btn:active{transform:translateY(2px) scale(.995)}
+/* Reduced hover motion: only subtle shadow change, no translate */
+.btn:hover{box-shadow:0 14px 30px rgba(17,12,19,0.08)}
+
+.wishArea{font-size:20px;color:#2b6cb0;min-height:30px;margin-top:8px;opacity:0;transform:translateY(6px);transition:all .45s cubic-bezier(.2,.9,.2,1)}
+.wishArea.show{opacity:1;transform:translateY(0)}
+
+.messages{display:flex;flex-direction:column;gap:16px;margin-top:20px}
+.card-msg{display:flex;gap:12px;align-items:center;background:linear-gradient(180deg,#ffffff,#fffaf6);padding:14px;border-radius:12px;box-shadow:0 8px 24px rgba(20,20,20,0.06);transform-origin:center;animation:pop .5s ease both}
+.card-msg img{width:120px;height:80px;border-radius:8px;object-fit:cover}
+.card-msg h2{margin:0;font-size:16px;color:#d14572}
+.card-msg p{margin:0;color:#444}
+
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* Floating balloons */
+.floaters{position:absolute;inset:0;pointer-events:none}
+.balloon{position:absolute;width:68px;height:92px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;opacity:.95;transform-origin:center bottom}
+.b1{left:8%;top:18%;background:linear-gradient(180deg,#ffd6f0,#ff9fb2);animation:float 6s ease-in-out infinite}
+.b2{right:12%;top:8%;width:84px;height:112px;background:linear-gradient(180deg,#d6f1ff,#8ecbff);animation:float 7s ease-in-out .5s infinite}
+.b3{left:48%;top:4%;width:72px;height:96px;background:linear-gradient(180deg,#fff4c2,#ffd36a);animation:float 5.8s ease-in-out .8s infinite}
+@keyframes float{0%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-18px) rotate(6deg)}100%{transform:translateY(0) rotate(-6deg)}}
+
+/* Confetti particles */
+#confetti{position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;z-index:999}
+.confetti-piece{position:absolute;width:10px;height:14px;opacity:0.95;border-radius:2px;transform:translateY(-10vh);will-change:transform,opacity}
+
+/* small responsive tweaks */
+@media (max-width:640px){.title{font-size:22px}.card-3d{max-width:340px}.card-msg img{width:84px;height:64px}}
+
+@media (max-width:840px){.profile-photo{width:220px;height:220px}}
+@media (max-width:460px){.profile-photo{width:140px;height:140px}}
+
+/* Mobile / Portrait orientation adjustments */
+@media (max-width:900px){
+	.stage{padding:20px}
+	.hero{gap:14px}
+	.card-3d{max-width:540px}
+	.hero-row{flex-direction:column;align-items:center;gap:12px}
+	.hero-text{max-width:92%;text-align:center}
+	.profile-photo{width:72vw;height:auto;max-width:360px}
+	.title{font-size:26px}
+	.controls{width:100%;display:flex;justify-content:center}
+	.btn{width:86%;max-width:420px;display:block;margin:0 auto}
+	.wishArea{font-size:16px}
+}
+
+@media (max-width:640px){
+	.profile-photo{width:78vw;max-width:320px}
+	.title{font-size:20px}
+	.btn{width:92%}
+	.card-msg{flex-direction:column;align-items:flex-start}
+	.card-msg img{width:100%;height:auto;border-radius:10px}
+	.messages{gap:12px;padding:0 8px}
+}
+
+@media (orientation:portrait) and (max-width:1024px){
+	/* Slightly larger photo in portrait tablets */
+	.profile-photo{width:46vw;max-width:420px}
+}
+
+/* Message container with right-side photo */
+.wishArea .message-container{display:flex;gap:20px;align-items:flex-start;justify-content:center}
+.wishArea .message-text{max-width:56ch;color:#333}
+.message-photo{width:260px;height:auto;border-radius:12px;object-fit:cover;border:6px solid rgba(255,255,255,0.6);box-shadow:0 18px 40px rgba(20,20,40,0.12)}
+
+@media (max-width:900px){
+	.wishArea .message-container{flex-direction:column;align-items:center}
+	.wishArea .message-text{max-width:88vw}
+	.message-photo{width:76vw;max-width:360px}
+}
+
+	/* Photo holder and pointer overlay */
+	#messagePhotoHolder{position:relative;display:flex;align-items:center;justify-content:center}
+	.message-photo-wrapper{position:relative;display:inline-block}
+	.photo-pointer{position:absolute;right:12px;bottom:12px;width:44px;height:44px;border-radius:50%;background:linear-gradient(180deg,#ffd6e6,#ff9fb2);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(0,0,0,0.12);border:2px solid rgba(255,255,255,0.7)}
+	.photo-pointer::after{content:'';width:12px;height:12px;background:#6a1536;border-radius:2px;display:block;transform:rotate(45deg)}
+	.photo-pointer.pulse{animation:pop .9s ease-in-out infinite}
+
+/* role badge under photo */
+.profile-wrapper{position:relative;display:inline-block}
+.profile-wrapper .role-badge{position:absolute;left:50%;transform:translateX(-50%);top:10px;background:linear-gradient(180deg,#ffd6e6,#ff9fb2);color:#6a1536;padding:8px 16px;border-radius:14px;border:1px solid rgba(180,60,90,0.2);font-weight:700;letter-spacing:1px;font-size:12px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.6)}
+.role-badge::selection{background:transparent}
+.role-badge::selection{background:transparent}
+
+@media (max-width:640px){
+	.role-badge{font-size:13px;padding:10px 18px}
+}
+
+/* Butterflies */
+.butterflies{position:absolute;inset:0;pointer-events:none;z-index:6}
+.butterfly{position:absolute;left:0;top:0;width:56px;height:56px;will-change:transform,opacity;pointer-events:none;display:block}
+.butterfly img{width:100%;height:100%;display:block;filter:drop-shadow(0 8px 14px rgba(0,0,0,0.12));}
+.wing{animation:flap .28s ease-in-out infinite}
+@keyframes flap{0%{transform:scaleY(1)}50%{transform:scaleY(0.72)}100%{transform:scaleY(1)}}
+
+/* subtle entrance */
+.butterfly.enter{animation:pop .45s cubic-bezier(.2,.9,.2,1)}

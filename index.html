@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Happy Birthday — Manaswini</title>
+  <link rel="stylesheet" href="styles.css">
+<body>
+  <div class="stage">
+    <div class="floaters" aria-hidden="true">
+      <div class="balloon b1"></div>
+      <div class="balloon b2"></div>
+      <div class="balloon b3"></div>
+    </div>
+
+    <div id="butterflies" class="butterflies" aria-hidden="true"></div>
+
+    <main class="container hero" role="main">
+      <div class="card-3d">
+        <div class="card-face card-front">
+          <h1 class="title">Happy Birthday, Manaswini!</h1>
+          <!-- decorative cake removed to eliminate top pink pill -->
+          <div class="hero-row" style="display:flex;align-items:center;gap:18px;justify-content:center;flex-wrap:wrap">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+              <div class="profile-wrapper">
+                <img id="profilePhoto" class="profile-photo" src="assets/photo.jpg" alt="Manaswini photo">
+                <div class="role-badge">PRESIDENT OF KOGNITIVE CLUB</div>
+              </div>
+            </div>
+            <div class="hero-text" style="max-width:420px;text-align:left">
+              <p id="introMessage" style="margin:0 0 8px;color:#5a2d43;font-weight:700">Warmest wishes on your special day</p>
+              <p style="margin:0;color:#444">Click <strong>Message</strong> to reveal a professional birthday message crafted for Manaswini.</p>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button id="addMsgBtn" class="btn primary">Message</button>
+          </div>
+
+          <div id="wishArea" class="wishArea" aria-live="polite"></div>
+        </div>
+
+        <div class="card-face card-back" aria-hidden="true">
+          <p>Make a lovely message appear and celebrate with confetti!</p>
+        </div>
+      </div>
+
+      <section id="messages" class="messages" aria-live="polite"></section>
+    </main>
+
+    <div id="confetti" class="confetti" aria-hidden="true"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

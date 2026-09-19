@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="100%" height="100%" fill="#ffdede" rx="16"/>
+  <g transform="translate(40,30)">
+    <rect x="0" y="0" width="320" height="180" rx="12" fill="#fff9f2" stroke="#ffd6d6"/>
+    <g transform="translate(40,30)">
+      <circle cx="40" cy="20" r="8" fill="#ff9fb2"/>
+      <rect x="10" y="40" width="160" height="60" rx="8" fill="#ffe6e6"/>
+      <text x="10" y="28" font-size="18" fill="#d6547a">Photo</text>
+    </g>
+  </g>
+</svg>
